@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- theme.title %></title>
+
+    <!-- 引入css文件 -->
+     <%- css('css/main.css') %>
+
+</head>
+<body>
+    <div id="main">
+        <!-- 引入侧边栏 -->
+         <aside id="aside">
+            <%- include('aside.ejs') %>
+         </aside>
+
+         <!-- 引入导航 -->
+          <nav>
+            <%- include('nav.ejs') %>
+          </nav>
+
+          <!-- 引入正文 -->
+           <div id="content">
+            <%- body %>
+           </div>
+    </div>
+
+    <!-- 引入js文件 -->
+     <%- js('js/main.js') %>
+</body>
+</html>

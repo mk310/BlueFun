@@ -1,0 +1,10 @@
+//主要配置文件
+
+title:BlueFun-HexoTheme
+
+author:mk310
+
+meues:主页:/
+  关于:/about
+
+links:github:https://github.com
