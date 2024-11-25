@@ -29,6 +29,7 @@ body {
 body.dark-mode {
   background-color: #333;
   color: #fff;
+  position: relative;
 }
 
 header {
@@ -102,6 +103,7 @@ header nav .search-dark-mode button {
 }
 
 main {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -111,6 +113,7 @@ main {
 
 main .leftAside {
   position: sticky;
+  top: 1.5rem;
   flex: 1;
   width: 350px;
 }
@@ -341,6 +344,7 @@ main .centerContent .post .post-intro P {
 
 main .rightAside {
   position: sticky;
+  top: 1.5rem;
   flex: 1;
   overflow-y: scroll;
   background-color: transparent;
