@@ -1,4 +1,37 @@
 @charset "UTF-8";
+body.darkmode {
+  --dark-background-color-base: #0D0E11;
+  --dark-background-color-second: #28292F;
+  --dark-title-color: #f7f7f7;
+  --dark-subtitle-color: #797E86;
+  transition: all 1.5s;
+}
+
+.first-title {
+  font-size: 1.5rem;
+  color: var(--dark-title-color, #333);
+}
+
+.second-title {
+  font-size: 1.2rem;
+  color: var(--dark-title-color, #333);
+}
+
+.third-title {
+  font-size: 1rem;
+  color: var(--dark-subtitle-color, #7a7a7a);
+}
+
+.subtitle {
+  font-size: .85rem;
+  color: var(--dark-subtitle-color, #7a7a7a);
+}
+
+.text-font {
+  font-size: 1rem;
+  color: var(--dark-title-color, #333);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,33 +54,23 @@ a {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: var(--dark-background-color-base, #f7f7f7);
   color: #333;
-  transition: background-color 0.5s, color 0.5s;
-}
-
-body.dark-mode {
-  background-color: #333;
-  color: #fff;
-  position: relative;
+  transition: all 1.5s;
 }
 
 header {
-  margin: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  padding: .8rem 0;
-}
-
-header.dark-mode {
-  background-color: #333;
-  color: #e2d4d4;
+  background-color: var(--dark-background-color-second, #fff);
+  transition: all 1.5s;
+  margin-top: 1rem;
 }
 
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px;
 }
 
 header nav .left-flex-box {
@@ -59,6 +82,7 @@ header nav .navLink {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  height: 100%;
 }
 
 header nav .navLink ul {
@@ -73,10 +97,20 @@ header nav .navLink ul .logo img {
   height: 50px;
 }
 
+header nav .navLink ul li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  padding: 0 .5rem;
+}
+
+header nav .navLink ul li:not(:first-child):hover {
+  background-color: #FAFAFA;
+}
+
 header nav .navLink ul li a {
   text-align: center;
-  color: #4a4a4a;
-  font-size: 1rem;
   text-transform: capitalize;
 }
 
@@ -85,21 +119,26 @@ header nav .search-dark-mode {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 60px;
+  height: 100%;
 }
 
 header nav .search-dark-mode input {
   width: 100px;
-  height: 20px;
+  height: 35%;
   text-align: center;
+  border-radius: 3px;
+  border: 2px #ddd solid;
 }
 
 header nav .search-dark-mode button {
   width: 35px;
-  height: 25px;
+  height: 40%;
   line-height: 20px;
   text-align: center;
   margin-left: 8px;
+  border-radius: 3px;
+  border: 2px #ddd solid;
 }
 
 main {
@@ -108,22 +147,22 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 20px;
-  background-color: #F7F7F7;
+  background-color: inherit;
 }
 
 main .leftAside {
   position: sticky;
   top: 1.5rem;
   flex: 1;
-  width: 350px;
 }
 
 main .leftAside .intro {
   height: 430px;
   padding: 1.5rem;
-  background-color: #FFFFFF;
+  background-color: var(--dark-background-color-second, #fff);
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 1.5s;
 }
 
 main .leftAside .intro > .flex-center-box {
@@ -154,15 +193,7 @@ main .leftAside .intro > .flex-center-box .person-intro .avtar img {
 }
 
 main .leftAside .intro > .flex-center-box .person-intro p {
-  color: #4a4a4a;
-  font-size: 1rem;
   margin-bottom: .5rem;
-}
-
-main .leftAside .intro > .flex-center-box .person-intro .name {
-  color: #363636;
-  font-size: 1.5rem;
-  font-weight: lighter;
 }
 
 main .leftAside .intro > .flex-center-box .person-intro .adre {
@@ -193,10 +224,9 @@ main .leftAside .intro .post-intro .post-info .flex-center-box .heading {
   margin-bottom: 5px;
 }
 
-main .leftAside .intro .post-intro .post-info .flex-center-box a {
+main .leftAside .intro .post-intro .post-info .flex-center-box a .title {
   color: #3273dc;
   cursor: pointer;
-  font-size: 1.5rem;
   text-decoration: none;
 }
 
@@ -232,21 +262,19 @@ main .leftAside .intro .follow a {
   justify-content: center;
   margin: .5rem .8rem;
   cursor: pointer;
-  color: #4a4a4a;
 }
 
 main .leftAside .new-posts {
   margin-top: 20px;
   height: 450px;
-  background-color: #FFFFFF;
+  background-color: var(--dark-background-color-second, #fff);
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
+  transition: all 1.5s;
 }
 
 main .leftAside .new-posts .new-posts-title {
-  color: #7a7a7a;
-  font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -256,22 +284,8 @@ main .leftAside .new-posts .new-posts-list .new-posts-item {
   margin-bottom: 2rem;
 }
 
-main .leftAside .new-posts .new-posts-list .new-posts-item .date {
-  font-size: 0.85rem;
-  color: #7a7a7a;
-}
-
 main .leftAside .new-posts .new-posts-list .new-posts-item .title a {
-  font-size: 1rem;
-  color: #363636;
-}
-
-main .leftAside .new-posts .new-posts-list .new-posts-item .categories {
-  font-size: 0.85rem;
-}
-
-main .leftAside .new-posts .new-posts-list .new-posts-item .categories a {
-  color: #7a7a7a;
+  color: var(--dark-title-color, #333);
 }
 
 main .leftAside .new-posts .new-posts-list .new-posts-item .categories a:nth-child(1)::after {
@@ -293,7 +307,8 @@ main .centerContent .post {
   height: 200px;
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: var(--dark-background-color-second, #fff);
+  transition: all 1.5s;
   display: flex;
   flex-direction: column;
   margin: 30px 0;
@@ -315,16 +330,6 @@ main .centerContent .post .post-header {
 
 main .centerContent .post .post-header .post-title {
   cursor: pointer;
-  font-size: 1rem;
-}
-
-main .centerContent .post .post-header .post-title a {
-  color: #333;
-}
-
-main .centerContent .post .post-header .post-date {
-  color: #7a7a7a;
-  font-size: 1rem;
 }
 
 main .centerContent .post .post-header .post-date span {
@@ -337,7 +342,6 @@ main .centerContent .post .post-intro {
 }
 
 main .centerContent .post .post-intro P {
-  font-size: 1rem;
   line-height: 1.5rem;
   white-space: wrap;
 }
@@ -356,10 +360,11 @@ main .rightAside::-webkit-scrollbar {
 
 main .rightAside #tree {
   padding: 1.5rem;
-  background-color: #fff;
+  background-color: var(--dark-background-color-second, #fff);
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   height: 430px;
+  transition: all 1.5s;
 }
 
 main .rightAside #tree ul li {
@@ -391,7 +396,7 @@ main .rightAside #tree ul li ul i.fa-file {
 }
 
 footer {
-  background-color: #fff;
+  background-color: var(--dark-background-color-second, #fff);
   margin-top: 1.5rem;
   padding: 1.5rem;
   display: flex;
