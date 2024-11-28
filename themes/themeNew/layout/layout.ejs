@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%- theme.title %></title>
+    <meta charset="utf-8">
+
+    <!-- 引入配置文件 -->
+    <%- css('css/main.css') %>
+
+    <!-- 字体图片库 -->
+    <%- css('lib/font-awesome/css/font-awesome.min.css') %>
+
+    <!-- 代码高亮库 -->
+    <%- css('/lib/highlight/styles/atom-one-dark') %>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <!-- 引入侧边栏 -->
+        <aside id="#aside">
+            <%- include('aside.ejs') %>
+        </aside>
+
+        <!-- 引入导航 -->
+        <nav>
+            <%- include('nav.ejs') %>
+        </nav>
+
+        <!-- 引入正文 -->
+        <div id="content">
+            <%- body %>
+        </div>
+
+    </div>
+
+
+    <!-- 引入 jquery -->
+    <%- js('/lib/jquery-3.7.1.slim.min.js') %>
+
+    <!-- 引入代码高亮的 js -->
+    <%- js('/lib/highlight/highlight.min.js') %>
+    <script>hljs.highlightingAll();</script>
+
+    <!-- 引入 pjax -->
+    <%- js('/lib/jquery.pjax.js') %>
+
+    <!-- 引入 js 文件 -->
+    <%- js('js/main.js') %>
+
+</body>
+
+</html>

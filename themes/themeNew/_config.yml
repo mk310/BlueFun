@@ -1,0 +1,12 @@
+# 主要配置文件
+
+title: blueFun
+
+author: mk310
+
+menus:
+  主页: /
+  关于: /about
+
+links:
+  github: https://github.com

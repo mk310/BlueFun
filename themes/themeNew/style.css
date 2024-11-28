@@ -4,6 +4,7 @@ body.darkmode {
   --dark-background-color-second: #28292F;
   --dark-title-color: #f7f7f7;
   --dark-subtitle-color: #797E86;
+  --dark-hover-color: #35373d;
   transition: all 1.5s;
 }
 
@@ -106,7 +107,7 @@ header nav .navLink ul li {
 }
 
 header nav .navLink ul li:not(:first-child):hover {
-  background-color: #FAFAFA;
+  background-color: var(--dark-hover-color, #FAFAFA);
 }
 
 header nav .navLink ul li a {

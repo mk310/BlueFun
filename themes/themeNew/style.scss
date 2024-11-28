@@ -21,6 +21,7 @@ body.darkmode {
     --dark-background-color-second: #28292F;
     --dark-title-color: #f7f7f7;
     --dark-subtitle-color: #797E86;
+    --dark-hover-color:  #35373d;
     transition: all 1.5s;
 }
 
@@ -130,7 +131,7 @@ header {
                     padding: 0 .5rem;
 
                     &:not(:first-child):hover {
-                        background-color: #FAFAFA;
+                        background-color: var(--dark-hover-color,#FAFAFA);
 
                     }
 
@@ -445,7 +446,7 @@ main {
             border-radius: $border-radius;
             box-shadow: $box-shaow;
             height: 430px;
-    transition: all 1.5s;
+            transition: all 1.5s;
 
             ul {
                 li {
