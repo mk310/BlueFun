@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人博客</title>
-    <link rel="icon" href="/images/logo.png">
+    <link rel="icon" href="/images/logo.png ">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/lib/fontawesome/css/all.min.css">
+    <!-- 引入配置文件 -->
+    <%- css('source/css/style.css') %>
+
 </head>
 
 <body>
+    <!-- 头部 -->
     <header class="container">
         <nav>
             <!-- 左侧flexbox占位 -->
@@ -34,8 +37,12 @@
             </div>
         </nav>
     </header>
+ <!-- 头部结束 -->
+
     <main class="container">
         <!-- 左侧边栏显示个人介绍和最新文章 -->
+
+         <!-- 左侧边栏 -->
         <div class="leftAside">
             <div class="intro">
                 <!-- 让个人介绍靠居中显示 -->
@@ -164,7 +171,11 @@
                 </div>
             </div>
         </div>
+        <!-- 左侧边栏结束 -->
+
+
         <!-- 中间文章部分按照发布日期展示发布的文章 -->
+         <!-- 中间文章 -->
         <div class="centerContent">
             <div class="post">
                 <div class="post-header">
@@ -319,6 +330,7 @@
                 </div>
             </div>
         </div>
+         <!-- 中间文章结束 -->
 
         <!-- 右边侧边栏，文章分类 -->
         <div class="rightAside">
@@ -381,6 +393,8 @@
         </div>
 
     </main>
+
+    <!-- 页脚 -->
     <footer id="footer">
         <div class="container">
             <a href="#" class="footer-logo"><img src="/images/logo.png" alt=""></a>
@@ -390,6 +404,8 @@
             <p>Hexo 博客</p>
         </div>
     </footer>
+    <!-- 页脚结束 -->
+
     <script>
         function toggleDarkMode() {
             const body = document.body;

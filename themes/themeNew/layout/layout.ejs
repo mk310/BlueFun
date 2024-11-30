@@ -1,54 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%- theme.title %></title>
-    <meta charset="utf-8">
+    <link rel="icon" href="/images/logo.png ">
 
-    <!-- 引入配置文件 -->
-    <%- css('css/main.css') %>
+    <!-- 引入样式表配置文件 -->
+    <%- css('/css/style.css') %>
 
-    <!-- 字体图片库 -->
-    <%- css('lib/font-awesome/css/font-awesome.min.css') %>
+    <!-- 引入fontawesome 图标库 -->
+    <%- css('lib/fontawesome/css/all.min.css') %>
 
-    <!-- 代码高亮库 -->
-    <%- css('/lib/highlight/styles/atom-one-dark') %>
 
 </head>
 
 <body>
-
-    <div id="main">
-        <!-- 引入侧边栏 -->
-        <aside id="#aside">
-            <%- include('aside.ejs') %>
-        </aside>
-
-        <!-- 引入导航 -->
-        <nav>
-            <%- include('nav.ejs') %>
-        </nav>
-
-        <!-- 引入正文 -->
-        <div id="content">
-            <%- body %>
-        </div>
-
-    </div>
+        <!-- 引入头部 -->
+        <%- include('nav.ejs') %>
 
 
-    <!-- 引入 jquery -->
-    <%- js('/lib/jquery-3.7.1.slim.min.js') %>
+        <main class="container">
+            <!-- 左侧边栏显示个人介绍和最新文章 -->
+            <!-- 引入右侧侧边栏 -->
+            <%- include('leftAside.ejs') %>
 
-    <!-- 引入代码高亮的 js -->
-    <%- js('/lib/highlight/highlight.min.js') %>
-    <script>hljs.highlightingAll();</script>
 
-    <!-- 引入 pjax -->
-    <%- js('/lib/jquery.pjax.js') %>
 
-    <!-- 引入 js 文件 -->
-    <%- js('js/main.js') %>
+            <!-- 中间文章部分按照发布日期展示发布的文章 -->
+           <!-- 引入中间文章 -->
+           <%- include('centerContent.ejs') %>
+
+
+            <!-- 引入右侧侧边栏 -->
+            <%- include('rightAside.ejs') %>
+        </main>
+
+        <!-- 引入页脚 -->
+        <%- include('footer.ejs') %>
+       
+<!-- 引入js文件 -->
+<%- js('js/main.js') %>
 
 </body>
 

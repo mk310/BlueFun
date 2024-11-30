@@ -1,16 +1,25 @@
-<ul id="menu">
-    <!-- 内部链接本页面直接跳转 -->
-    <% for ( menu in theme.menus ) { %>
-    <li class="menu-item">
-        <a href="<%- theme.menus[menu] %>" class="menu-item-link"><%- menu %></a>
-    </li>
-    <% } %>
+    <!-- 头部 -->
+    <header class="container">
+        <nav>
+            <!-- 左侧flexbox占位 -->
+            <div class="left-flex-box"></div>
+            <div class="navLink ">
+                <ul>
+                    <li class="logo">
+                        <a href="#"><img src="/images/logo.png" alt="Logo"></a>
+                    </li>
+                    <li><a class="second-title" href="#">home</a></li>
+                    <li><a class="second-title" href="#">archives</a></li>
+                    <li><a class="second-title" href="#">categorey</a></li>
+                    <li><a class="second-title" href="#">tags</a></li>
+                    <li><a class="second-title" href="#">about</a></li>
 
-    <!-- 外部链接打开新的窗口跳转 -->
-    <% for ( link in theme.links ) { %>
-    <li class="menu-item">
-        <a href="<%- theme.links[link] %>" class="menu-item-link" target="_blank"><%- link %></a>
-    </li>
-    <% } %>
-
-</ul>
+                </ul>
+            </div>
+            <div class="search-dark-mode">
+                <input type="text" placeholder="Search...">
+                <button onclick="toggleDarkMode()">🌙</button>
+            </div>
+        </nav>
+    </header>
+ <!-- 头部结束 -->
