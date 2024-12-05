@@ -1,0 +1,23 @@
+---
+layout: layout
+title: "分类"
+---
+
+<h2>文章分类</h2>
+
+<ul>
+<% site.categories.sort('name').forEach(function(category) { %>
+  <li>
+    <a href="<%- url_for('categories/' + category.name + '/index.html') %>"><%= category.name %></a> (<%= category.length %>)
+    <% if (theme.show_category_posts) { %>
+      <ul>
+        <% category.posts.forEach(function(post) { %>
+          <li><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+        <% }); %>
+      </ul>
+    <% } %>
+  </li>
+<% }); %>
+</ul>
+
+

@@ -23,7 +23,7 @@
                 <div class="flex-center-box">
                     <p class="heading second-title">文章</p>
                     <a href="#">
-                        <p class="title first-title">68</p>
+                        <p class="title first-title"><%- site.posts.length %></p>
                     </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="flex-center-box">
                     <p class="heading second-title">分类</p>
                     <a href="#">
-                        <p class="title first-title">23</p>
+                        <p class="title first-title"><%- site.categories.length %></p>
                     </a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="flex-center-box">
                     <p class="heading second-title">标签</p>
                     <a href="#">
-                        <p class="title first-title">122</p>
+                        <p class="title first-title"><%- site.tags.length %></p>
                     </a>
                 </div>
             </div>
@@ -58,71 +58,25 @@
     <div class="new-posts">
         <div class="new-posts-title subtitle">最新文章</div>
         <div class="new-posts-list">
-            <div class="new-posts-item">
-                <p class="date subtitle">
-                    <time datetime="2024-11-06T11:06:38.000Z">2024-11-06</time>
-                </p>
-                <p class="title ">
-                    <a class="third-title" href="#">flex布局</a>
-                </p>
-                <p class="categories ">
-                    <a class="subtitle" href="#">前端</a>
 
-                    <a class="subtitle" href="#">css</a>
-                </p>
-            </div>
-            <div class="new-posts-item">
-                <p class="date subtitle">
-                    <time datetime="2024-11-06T11:06:38.000Z">2024-11-06</time>
-                </p>
-                <p class="title ">
-                    <a class="third-title" href="#">flex布局</a>
-                </p>
-                <p class="categories ">
-                    <a class="subtitle" href="#">前端</a>
+           
 
-                    <a class="subtitle" href="#">css</a>
-                </p>
-            </div>
-            <div class="new-posts-item">
-                <p class="date subtitle">
-                    <time datetime="2024-11-06T11:06:38.000Z">2024-11-06</time>
-                </p>
-                <p class="title ">
-                    <a class="third-title" href="#">flex布局</a>
-                </p>
-                <p class="categories ">
-                    <a class="subtitle" href="#">前端</a>
+            <% site.posts.sort('-updated').limit(5).forEach(function(post) { %>
+                <div class="new-posts-item">
+                    <p class="date subtitle">
+                        <time datetime="<%= post.updated.format('YYYY-MM-DD') %>"><%= post.updated.format('YYYY-MM-DD') %></time>
+                    </p>
+                    <p class="title ">
+                        <a class="third-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+                    </p>
+                    <p class="categories ">
+                        <a class="subtitle" href="#">前端</a>
+    
+                        <a class="subtitle" href="#">css</a>
+                    </p>
+                </div>
+              <% }); %>
 
-                    <a class="subtitle" href="#">css</a>
-                </p>
-            </div>
-            <div class="new-posts-item">
-                <p class="date subtitle">
-                    <time datetime="2024-11-06T11:06:38.000Z">2024-11-06</time>
-                </p>
-                <p class="title ">
-                    <a class="third-title" href="#">flex布局</a>
-                </p>
-                <p class="categories ">
-                    <a class="subtitle" href="#">前端</a>
-
-                    <a class="subtitle" href="#">css</a>
-                </p>
-            </div>
-            <div class="new-posts-item">
-                <p class="date subtitle">
-                    <time datetime="2024-11-06T11:06:38.000Z">2024-11-06</time>
-                </p>
-                <p class="title ">
-                    <a class="third-title" href="#">flex布局</a>
-                </p>
-                <p class="categories ">
-                    <a class="subtitle" href="#">前端</a>
-
-                    <a class="subtitle" href="#">css</a>
-                </p>
-            </div>
 
         </div>
     </div>

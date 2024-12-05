@@ -1,4 +1,4 @@
-<script>
+
 function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('darkmode');
@@ -12,4 +12,3 @@ for (let i = 0; i < treeLis.length; i++) {
         treeLis[i].classList.add('active');
     })
 }
-</script>

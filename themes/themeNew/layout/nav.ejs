@@ -8,12 +8,11 @@
                     <li class="logo">
                         <a href="#"><img src="/images/logo.png" alt="Logo"></a>
                     </li>
-                    <li><a class="second-title" href="#">home</a></li>
-                    <li><a class="second-title" href="#">archives</a></li>
-                    <li><a class="second-title" href="#">categorey</a></li>
-                    <li><a class="second-title" href="#">tags</a></li>
-                    <li><a class="second-title" href="#">about</a></li>
-
+                    
+                        <!-- 内部链接本页面直接跳转 -->
+                <% for ( menu in theme.menus ) { %>
+                    <li><a class="second-title" href="<%- theme.menus[menu] %>"><%- menu %></a></li>
+                <% } %>
                 </ul>
             </div>
             <div class="search-dark-mode">

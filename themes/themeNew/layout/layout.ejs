@@ -13,6 +13,9 @@
     <!-- 引入fontawesome 图标库 -->
     <%- css('lib/fontawesome/css/all.min.css') %>
 
+    <!-- 代码高亮库 -->
+    <%- css('/lib/highlight/styles/atom-one-dark') %>
+
 
 </head>
 
@@ -26,15 +29,16 @@
             <!-- 引入右侧侧边栏 -->
             <%- include('leftAside.ejs') %>
 
-
+            
 
             <!-- 中间文章部分按照发布日期展示发布的文章 -->
            <!-- 引入中间文章 -->
-           <%- include('centerContent.ejs') %>
-
-
+           <%- body %>
+           
+          
             <!-- 引入右侧侧边栏 -->
             <%- include('rightAside.ejs') %>
+            
         </main>
 
         <!-- 引入页脚 -->
@@ -42,6 +46,10 @@
        
 <!-- 引入js文件 -->
 <%- js('js/main.js') %>
+
+<!-- 引入代码高亮的 js -->
+<%- js('/lib/highlight/highlight.min.js') %>
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 

@@ -1,0 +1,22 @@
+---
+layout: layout
+title: "标签"
+---
+
+<h2>文章标签</h2>
+
+<ul>
+<% site.tags.sort('name').forEach(function(tag) { %>
+  <li>
+    <a href="<%- url_for('tags/' + tag.name + '/index.html') %>"><%= tag.name %></a> (<%= tag.length %>)
+      <ul>
+        <% tag.posts.forEach(function(post) { %>
+          <li><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+        <% }); %>
+      </ul>
+   
+  </li>
+<% }); %>
+</ul>
+
+

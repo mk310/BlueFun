@@ -5,8 +5,13 @@ title: blueFun
 author: mk310
 
 menus:
-  主页: /
-  关于: /about
+  home: /
+  category: /categories
+  tags: /tags
+  archive: /archive
+  about: /about
+
+show_category_posts: true
 
 links:
   github: https://github.com
