@@ -12,3 +12,11 @@ for (let i = 0; i < treeLis.length; i++) {
         treeLis[i].classList.add('active');
     })
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var detailsElements = document.querySelectorAll("#category-tree details");
+    detailsElements.forEach(function(element) {
+      element.removeAttribute('open');
+    });
+  });

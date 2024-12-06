@@ -51,6 +51,7 @@ body.darkmode {
 
 a {
   text-decoration: none;
+  color: var(--dark-title-color, #333);
 }
 
 ul {
@@ -436,7 +437,8 @@ main #article .post-info #post-date {
   color: var(--dark-subtitle-color, #7a7a7a);
 }
 
-main #article ul, main #article ol {
+main #article ul,
+main #article ol {
   padding: .5rem 1.5rem;
 }
 
@@ -603,4 +605,56 @@ footer p span {
   font-weight: bold;
   color: #A6D1A6;
   text-transform: capitalize;
+}
+
+#category {
+  min-height: 1000px;
+  width: 100%;
+  background-color: var(--dark-background-color-second, #fff);
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 1.5s;
+  margin: 0 1rem;
+  line-height: 2rem;
+  color: var(--dark-title-color, #333);
+  padding: 1.5rem;
+}
+
+#category .category-list-child {
+  flex-basis: 100%;
+  border-left: var(--dark-subtitle-color, #7a7a7a) 1px dashed;
+}
+
+#category .category-list-child li {
+  padding-right: 0;
+}
+
+#category ul {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#category ul li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: .5rem 1rem;
+  border-radius: 3px;
+}
+
+#category ul li:hover::before {
+  content: "➡";
+  color: #3273DC;
+  font-size: 1.5rem;
+}
+
+#category ul li a {
+  flex: 10;
+  padding: 0 .5rem;
+}
+
+#category ul li span {
+  flex: 0;
+  padding-right: .5rem;
+  padding-left: .5rem;
 }

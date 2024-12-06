@@ -3,21 +3,51 @@ layout: layout
 title: "分类"
 ---
 
-<h2>文章分类</h2>
 
-<ul>
-<% site.categories.sort('name').forEach(function(category) { %>
-  <li>
-    <a href="<%- url_for('categories/' + category.name + '/index.html') %>"><%= category.name %></a> (<%= category.length %>)
-    <% if (theme.show_category_posts) { %>
-      <ul>
-        <% category.posts.forEach(function(post) { %>
-          <li><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+
+
+<div class="centerContent">
+  
+
+
+  
+    <% if (page.canonical_path === 'categories/index.html') { %>
+        <!-- 如果是在分类页面 -->
+        <% if (site.categories.length) { %>
+          <div id="category">
+            <h3 class="second-title">分类</h3>
+            <%- list_categories(site.categories, { depth: 3 }) %>
+          </div>
+        <% } %>
+      <% } else { %>
+        <!-- 在非分类页面显示文章列表 -->
+        <% page.posts.forEach(function(post) { %>
+          <div class="post">
+            <div class="post-header">
+              <div class="post-title">
+                <a href="<%- config.root + post.path %>">
+                  <h1 class="first-title"><%= post.title %></h1>
+                </a>
+              </div>
+              <div class="post-date subtitle">
+                <i class="fas fa-clock"></i>
+                <span>上传:<%- date(post.date, "YYYY-MM-DD") %></span>
+                <span>更新:<%- date(post.updated, "YYYY-MM-DD") %></span>
+              </div>
+            </div>
+            <div class="post-intro text-font">
+              <%- post.excerpt %>
+            </div>
+          </div>
         <% }); %>
-      </ul>
-    <% } %>
-  </li>
-<% }); %>
-</ul>
+      <% } %>
+
+       
+     
 
 
+           
+        
+       
+
+</div>
