@@ -1,59 +1,155 @@
-   <!-- 右边侧边栏，文章分类 -->
-   <div class="rightAside">
-    <div id="tree">
-        <ul>
-            <li class="post_id1">
-                <a href="#">
-                    <i class="fa fa-file"> </i>
-                    文章标题1
-                </a>
-            </li>
-            <li class="post_id2">
-                <a href="#">
-                    <i class="fa fa-file"> </i>
-                    文章标题2
-                </a>
-            </li>
-            <li class="post_id3">
-                <a href="#">
-                    <i class="fa fa-file"> </i>
-                    文章标题3
-                </a>
-            </li>
+<!-- 右边侧边栏，文章分类 -->
+<div class="rightAside">
+    <!-- 
+  /*
+  思想：
+  1. 获取所有分类
+  2. 遍历分类，判断是否有父级分类
+  3. 有父级分类，将其记录进入hasParnet数组中去
+  4. 再次遍历，无父级元素直接创建，有父级元素找到父级元素在已经创建的父级目录中创建
+  */  
+  -->
+        <%
+            var categories=site.categories.data; 
+            categories.forEach(function(category){
+                category.depth = 0;
+                category.index = categories.indexOf(category);
+                category.child_index = [];
+            });
 
-            <li class="directory4">
-                <a href="#" class="directory">
+            function buildIndex(category){
+                if(!category.parent ){
+                    category.depth = 0;
+
+                }
+                else{
+                    categories.forEach(function(new_category){
+                        if(new_category._id === category.parent){
+                            category.parent_name = new_category.name;
+                            category.parnet_index = new_category.index;
+                            new_category.child_index.push(category.index);
+                        }
+                        
+                    });
+                }
+
+            }
+           
+            function buildDepth(category){
+                if(category.child_index.length>0){
+                    category.child_index.forEach(function(index){
+                        categories[index].depth = category.depth + 1;
+                        buildDepth(categories[index]);
+                    });
+                }
+               
+            }
+
+       
+
+                // 获取两个数组的差集
+            function getDiff(arr1,arr2){ 
+               
+                 arr1.forEach(function(item){
+                    arr2.forEach(function(item2){
+                        if(item._id == item2._id){
+                            arr1.splice(arr1.indexOf(item),1);
+                            
+                        }else{
+                            console.log(item.title,item._id);
+                            console.log(item2.title,item2._id);
+                        }
+                    })
+                })
+            }
+            
+            function getDifferencePosts(category){
+                
+                if (category.child_index.length>0) {
+                
+                category.child_index.forEach(function(index){
+                    
+                    getDiff(category.posts.data,categories[index].posts.data);
+                    getDifferencePosts(categories[index]);
+                   
+                   
+                }
+            );
+                
+
+           }
+                    
+            }
+
+
+            categories.forEach(function(category){
+                buildIndex(category);
+                
+            });
+            categories.forEach(function(category){
+                buildDepth(category);
+                
+            });
+            categories.forEach(function(category){
+                getDifferencePosts(category);
+                
+            });
+          
+           
+            var rootCategories = [];
+            categories.forEach(function(category){
+                if(category.depth === 0){
+                    rootCategories.push(category);
+                }
+               
+            });
+            
+            
+        %>
+
+<div id="tree">
+    <% function renderTree(category){ %>
+        <ul class="childCategory" style="display:none;">
+            <% if (category.child_index.length > 0 || category.posts.length > 0) {  %>
+                <% if(category.child_index.length > 0 ){ %>
+                    <% category.child_index.forEach(function(index){ %>
+                        <li class="category-item toggle">
+                            
+                                <i class="fa fa-folder"></i>
+                                <%- categories[index].name %>
+                                <% renderTree(categories[index]) %>
+                           
+                        </li>
+                    <% }); %>
+                <% } %>
+                <% if(category.posts.length > 0 ){ %>
+                    <% category.posts.data.forEach(function(post){ %>
+                        <li class="post-item">
+                            <a href="<%-  config.root + post.path %> %>">
+                                <i class="fa fa-file"></i>
+                                <%= post.title %>
+                            </a>
+                        </li>
+                    <% }); %>
+                <% } %>
+               
+            <% } %>
+        </ul>  
+        <% } %>
+    
+    
+    
+    
+    <ul>
+        <%rootCategories.forEach(function(category){%>
+            <li class="category-item  toggle">
+                
                     <i class="fa fa-folder"></i>
-                    文件夹标题
-                </a>
-
-                <ul>
-                    <li class="post_id5">
-                        <a href="#">
-                            <i class="fa fa-file"> </i>
-                            文章标题4
-                        </a>
-                    </li>
-                    <li class="post_id6">
-                        <a href="#">
-                            <i class="fa fa-file"> </i>
-                            文章标题5
-                        </a>
-                    </li>
-                    <li class="post_id7">
-                        <a href="#">
-                            <i class="fa fa-file"> </i>
-                            文章标题6
-                        </a>
-                    </li>
-                    <li class="post_id8">
-                        <a href="#">
-                            <i class="fa fa-file"> </i>
-                            文章标题7
-                        </a>
-                    </li>
-                </ul>
+                    <%- category.name %>
+                    <% renderTree(category) %>
+                
             </li>
-        </ul>
-    </div>
+        <%})%>
+    </ul>
+
 </div>

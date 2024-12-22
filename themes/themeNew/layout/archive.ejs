@@ -1,0 +1,47 @@
+---
+layout: layout
+title: "归档"
+---
+
+<div class="centerContent">
+  
+
+  
+  <% if (page.canonical_path === 'archive/index.html') { %>
+    <!-- 如果是在分类页面 -->
+    <% if (site.posts.length){ %>
+        <div id="archive">
+          <h3 class="title">归档</h3>
+          <%- list_archives({format: "YYYY年MM月"}) %>
+        </div>
+      <% } %>
+  <% }else  { %>
+    <!-- 在非分类页面显示文章列表 -->
+    <% page.posts.forEach(function(post) { %>
+      <div class="post">
+        <div class="post-header">
+          <div class="post-title">
+            <a href="<%- config.root + post.path %>">
+              <h1 class="first-title"><%= post.title %></h1>
+            </a>
+          </div>
+          <div class="post-date subtitle">
+            <i class="fas fa-clock"></i>
+            <span>上传:<%- date(post.date, "YYYY-MM-DD") %></span>
+            <span>更新:<%- date(post.updated, "YYYY-MM-DD") %></span>
+          </div>
+        </div>
+        <div class="post-intro text-font">
+          <%- post.excerpt %>
+        </div>
+      </div>
+    <% }); %>
+  <% } %>
+
+
+
+  
+</div>
+
+
+ 

@@ -374,13 +374,14 @@ main .rightAside #tree {
   background-color: var(--dark-background-color-second, #fff);
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  height: 430px;
   transition: all 1.5s;
 }
 
 main .rightAside #tree ul li {
   list-style: none;
   line-height: 25px;
+  color: #999;
+  font-size: 14px;
   /*访问过后变化颜色*/
 }
 
@@ -402,8 +403,8 @@ main .rightAside #tree ul li a:hover {
   cursor: pointer;
 }
 
-main .rightAside #tree ul li ul i.fa-file {
-  margin-left: 6px;
+main .rightAside #tree ul li ul {
+  margin-left: .5rem;
 }
 
 main #article {
@@ -607,7 +608,7 @@ footer p span {
   text-transform: capitalize;
 }
 
-#category {
+#category, #tag, #archive {
   min-height: 1000px;
   width: 100%;
   background-color: var(--dark-background-color-second, #fff);
@@ -620,21 +621,21 @@ footer p span {
   padding: 1.5rem;
 }
 
-#category .category-list-child {
+#category .category-list-child, #tag .category-list-child, #archive .category-list-child {
   flex-basis: 100%;
   border-left: var(--dark-subtitle-color, #7a7a7a) 1px dashed;
 }
 
-#category .category-list-child li {
+#category .category-list-child li, #tag .category-list-child li, #archive .category-list-child li {
   padding-right: 0;
 }
 
-#category ul {
+#category ul, #tag ul, #archive ul {
   width: 70%;
   margin: 0 auto;
 }
 
-#category ul li {
+#category ul li, #tag ul li, #archive ul li {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -642,18 +643,18 @@ footer p span {
   border-radius: 3px;
 }
 
-#category ul li:hover::before {
+#category ul li:hover::before, #tag ul li:hover::before, #archive ul li:hover::before {
   content: "➡";
   color: #3273DC;
   font-size: 1.5rem;
 }
 
-#category ul li a {
+#category ul li a, #tag ul li a, #archive ul li a {
   flex: 10;
   padding: 0 .5rem;
 }
 
-#category ul li span {
+#category ul li span, #tag ul li span, #archive ul li span {
   flex: 0;
   padding-right: .5rem;
   padding-left: .5rem;

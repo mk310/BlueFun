@@ -9,7 +9,7 @@ menus:
   category: /categories
   tags: /tags
   archive: /archive
-  about: /about
+  
 
 show_category_posts: true
 
